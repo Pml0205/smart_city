@@ -1,16 +1,15 @@
-package com.example.cv_auth.security;
+package com.example.smart_city.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 import static org.springframework.security.config.Customizer.withDefaults;
@@ -22,15 +21,16 @@ public class Security_config {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // Disable CSRF for testing purposes
+                .csrf(csrf -> csrf.disable()) // Disable CSRF for testing
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/public/**").permitAll() // Public endpoints
-                        .requestMatchers("/api/admin/**").hasRole("ADMIN") // Admin access
-                        .requestMatchers("/api/private/**").hasRole("USER") // User access
-                        .requestMatchers("/api/users/**").permitAll() // Open registration/login
-                        .anyRequest().authenticated() // All other requests need authentication
+                        .requestMatchers("/api/users/**").permitAll()    // Allow login/register
+                        .requestMatchers("/api/hotels/**").permitAll()   // Allow hotel API access for Postman
+                        .requestMatchers("/api/restaurants/**").permitAll() //Allow restaurants API access
+                        .requestMatchers("/api/touristspots/**").permitAll() //Allow Tourist Spot API access
+                        .requestMatchers("/api/transport/**").permitAll() //Allow Transport API access
+                        .anyRequest().authenticated()                   // Other endpoints require login
                 )
-                .httpBasic(withDefaults()); // Enable Basic Authentication
+                .httpBasic(withDefaults()); // Enable basic authentication (for testing)
 
         return http.build();
     }

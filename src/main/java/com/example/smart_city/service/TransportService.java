@@ -1,7 +1,7 @@
-package com.example.cv_auth.service;
+package com.example.smart_city.service;
 
-import com.example.cv_auth.model.Transport;
-import com.example.cv_auth.repository.TransportRepository;
+import com.example.smart_city.model.Transport;
+import com.example.smart_city.repository.TransportRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

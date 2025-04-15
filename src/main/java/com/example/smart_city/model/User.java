@@ -1,4 +1,4 @@
-package com.example.cv_auth.model;
+package com.example.smart_city.model;
 
 import jakarta.persistence.*;
 

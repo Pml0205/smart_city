@@ -1,7 +1,7 @@
-package com.example.cv_auth.controller;
+package com.example.smart_city.controller;
 
-import com.example.cv_auth.model.Hotel;
-import com.example.cv_auth.service.HotelService;
+import com.example.smart_city.model.Hotel;
+import com.example.smart_city.service.HotelService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +21,11 @@ public class HotelController {
         return service.getAll();
     }
 
+    @GetMapping("/city/{city}")
+    public List<Hotel> getByCity(@PathVariable String city) {
+        return service.getByCity(city);
+    }
+
     @PostMapping
     public Hotel create(@RequestBody Hotel hotel) {
         return service.save(hotel);
@@ -31,3 +36,5 @@ public class HotelController {
         service.delete(id);
     }
 }
+
+

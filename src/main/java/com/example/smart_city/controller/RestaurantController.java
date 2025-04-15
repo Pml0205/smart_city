@@ -1,7 +1,7 @@
-package com.example.cv_auth.controller;
+package com.example.smart_city.controller;
 
-import com.example.cv_auth.model.Restaurant;
-import com.example.cv_auth.service.RestaurantService;
+import com.example.smart_city.model.Restaurant;
+import com.example.smart_city.service.RestaurantService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

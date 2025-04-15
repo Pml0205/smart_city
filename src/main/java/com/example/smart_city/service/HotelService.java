@@ -1,28 +1,33 @@
-package com.example.cv_auth.service;
+package com.example.smart_city.service;
 
-import com.example.cv_auth.model.Hotel;
-import com.example.cv_auth.repository.HotelRepository;
+import com.example.smart_city.model.Hotel;
+import com.example.smart_city.repository.HotelRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class HotelService {
-    private final HotelRepository repo;
 
-    public HotelService(HotelRepository repo) {
-        this.repo = repo;
+    private final HotelRepository repository;
+
+    public HotelService(HotelRepository repository) {
+        this.repository = repository;
     }
 
     public List<Hotel> getAll() {
-        return repo.findAll();
+        return repository.findAll();
     }
 
     public Hotel save(Hotel hotel) {
-        return repo.save(hotel);
+        return repository.save(hotel);
     }
 
     public void delete(Long id) {
-        repo.deleteById(id);
+        repository.deleteById(id);
+    }
+
+    public List<Hotel> getByCity(String city) {
+        return repository.findByCityIgnoreCase(city);
     }
 }

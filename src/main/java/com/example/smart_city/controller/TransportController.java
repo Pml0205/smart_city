@@ -1,7 +1,7 @@
-package com.example.cv_auth.controller;
+package com.example.smart_city.controller;
 
-import com.example.cv_auth.model.Transport;
-import com.example.cv_auth.service.TransportService;
+import com.example.smart_city.model.Transport;
+import com.example.smart_city.service.TransportService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

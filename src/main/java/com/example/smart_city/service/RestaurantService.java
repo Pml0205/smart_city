@@ -1,7 +1,7 @@
-package com.example.cv_auth.service;
+package com.example.smart_city.service;
 
-import com.example.cv_auth.model.Restaurant;
-import com.example.cv_auth.repository.RestaurantRepository;
+import com.example.smart_city.model.Restaurant;
+import com.example.smart_city.repository.RestaurantRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
