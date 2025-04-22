@@ -22,9 +22,14 @@ public class UserController {
             return ResponseEntity.badRequest().body("Passwords do not match!");
         }
 
-        userService.registerUser(user);
+        boolean registered = userService.registerUser(user);
+        if (!registered) {
+            return ResponseEntity.badRequest().body("Email is already registered!");
+        }
+
         return ResponseEntity.ok("User registered successfully!");
     }
+
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody User user) {
