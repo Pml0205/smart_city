@@ -14,9 +14,13 @@ public class UserService {
     private Map<String, String> users = new HashMap<>();
     private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    public void registerUser(User user) {
+    public boolean registerUser(User user) {
+        if (users.containsKey(user.getEmail())) {
+            return false; // Email already exists
+        }
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         users.put(user.getEmail(), encodedPassword);
+        return true;
     }
 
     public boolean authenticate(String email, String rawPassword) {
@@ -24,3 +28,4 @@ public class UserService {
         return encodedPassword != null && passwordEncoder.matches(rawPassword, encodedPassword);
     }
 }
+
