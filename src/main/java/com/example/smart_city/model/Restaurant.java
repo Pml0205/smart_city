@@ -18,4 +18,5 @@ public class Restaurant {
     private String cuisine;
     private String address;
     private double rating;
+    private String city;
 }

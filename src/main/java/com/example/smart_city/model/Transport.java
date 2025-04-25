@@ -17,4 +17,5 @@ public class Transport {
     private String type; // e.g., Bus, Taxi
     private String route;
     private double fare;
+    private String city;
 }
