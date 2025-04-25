@@ -23,7 +23,7 @@ public class Security_config {
         http
                 .csrf(csrf -> csrf.disable()) // Disable CSRF for testing
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/users/**").permitAll()    // Allow login/register
+                        .requestMatchers("/api/users/**").permitAll() // Allow login/register
                         .requestMatchers("/api/hotels/**").permitAll()   // Allow hotel API access for Postman
                         .requestMatchers("/api/restaurants/**").permitAll() //Allow restaurants API access
                         .requestMatchers("/api/touristspots/**").permitAll() //Allow Tourist Spot API access
